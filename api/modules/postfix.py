@@ -1,8 +1,22 @@
+from itertools import zip_longest
+
 OPERATORS_PRIORITY = {
     '+': 1, '-': 2, '*': 3, '/': 4
 }
 OPEN_PARENTHESIS = '('
 CLOSE_PARENTHESIS = ')'
+
+
+def crete_space_between_symbols(infix: str) -> str:
+    symbols = list(infix.strip())
+    spaced_infix = ''
+
+    for symbol, next_symbol in zip_longest(symbols, symbols[1:], fillvalue=''):
+        spaced_infix += symbol
+        if not (symbol.isdigit() and next_symbol.isdigit()):
+            spaced_infix += ' '
+
+    return spaced_infix
 
 
 def to_postfix(infix: str) -> str:
