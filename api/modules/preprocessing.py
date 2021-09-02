@@ -1,12 +1,27 @@
+from base64 import b64decode
+from typing import Union
+
 import cv2
 import numpy as np
 
 from api import settings
 
 
+def bytes_to_numpy(image_bytes: Union[bytes, str]) -> np.ndarray:
+    encoded_array = np.fromstring(image_bytes, np.uint8)
+    image = cv2.imdecode(encoded_array, cv2.IMREAD_GRAYSCALE)
+    return image
+
+
+def base64_to_numpy(image_base64: Union[str, bytes]) -> np.ndarray:
+    encoded_array = np.frombuffer(b64decode(image_base64), np.uint8)
+    image = cv2.imdecode(encoded_array, cv2.IMREAD_GRAYSCALE)
+    return image
+
+
 def pre_processing(image: np.ndarray) -> np.ndarray:
     image = cv2.resize(image, settings.preprocessing.IMAGE_SHAPE_WITHOUT_SHAPE)
-    image = image[:, :, np.newaxis]
+    image = image[np.newaxis, :, :, np.newaxis]
     image = image / 255.
     return image
 
