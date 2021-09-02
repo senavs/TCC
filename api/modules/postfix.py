@@ -49,6 +49,3 @@ def evaluate(postfix: str) -> int:
 
 def operation(operand_1: int, operand_2: int, operator: str) -> int:
     return eval(f"{operand_1} {operator} {operand_2}")
-
-
-print(evaluate('17 10 + 3 * 9 /'))
