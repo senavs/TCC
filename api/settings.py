@@ -8,4 +8,10 @@ class APISettings(BaseSettings):
     RELOAD: bool = True
 
 
+class PreProcessingSettings(BaseSettings):
+    IMAGE_SHAPE = (45, 45, 1)
+    IMAGE_SHAPE_WITHOUT_SHAPE = (45, 45)
+
+
 api = APISettings()
+preprocessing = PreProcessingSettings()
