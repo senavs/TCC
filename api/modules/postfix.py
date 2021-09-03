@@ -7,6 +7,16 @@ OPEN_PARENTHESIS = '('
 CLOSE_PARENTHESIS = ')'
 
 
+def create_expression(*symbols) -> str:
+    expression = ''
+    for symbol, next_symbol in zip_longest(symbols, symbols[1:], fillvalue=''):
+        expression += symbol
+        if not (symbol.isdigit() and next_symbol.isdigit()):
+            expression += ' '
+
+    return expression.strip()
+
+
 def crete_space_between_symbols(infix: str) -> str:
     symbols = list(infix.strip())
     spaced_infix = ''
@@ -16,7 +26,7 @@ def crete_space_between_symbols(infix: str) -> str:
         if not (symbol.isdigit() and next_symbol.isdigit()):
             spaced_infix += ' '
 
-    return spaced_infix
+    return spaced_infix.strip()
 
 
 def to_postfix(infix: str) -> str:

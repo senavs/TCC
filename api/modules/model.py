@@ -7,7 +7,7 @@ from api.modules.preprocessing import pre_processing
 
 TARGET_DECODER = {
     0: '0', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: '8', 9: '9',
-    10: 'div', 11: 'minus', 12: 'parenthesis-closed', 13: 'parenthesis-opened', 14: 'plus', 15: 'times'
+    10: '/', 11: '-', 12: ')', 13: '(', 14: '+', 15: '*'
 }
 
 
