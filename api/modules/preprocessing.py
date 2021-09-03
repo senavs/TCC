@@ -47,4 +47,4 @@ def padding(image: np.ndarray) -> np.ndarray:
     y = (y_shape // 2) - 46 // 2
     h = y + 45
 
-    return pad_image[y:h, x:w]
+    return pad_image[x:w, y:h]
