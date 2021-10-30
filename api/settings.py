@@ -14,7 +14,7 @@ class PreProcessingSettings(BaseSettings):
 
 
 class ModelSettings(BaseSettings):
-    MODEL_WEIGHTS: str = '../notebooks/model.h5'
+    MODEL_WEIGHTS: str = '../notebooks/new-model.h5'
 
 
 api = APISettings()

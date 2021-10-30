@@ -20,7 +20,7 @@ def build_model() -> Model:
 
     x = Flatten()(x)
 
-    x = Dense(64, activation='relu')(x)
+    x = Dense(128, activation='relu')(x)
     x = Dropout(0.5)(x)
     output = Dense(16, activation='softmax')(x)
 
